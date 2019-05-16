@@ -9,18 +9,26 @@ repositories {
     mavenCentral()
     jcenter()
 }
-
+def prop(String name, String defaultValue = null) {
+    project.hasProperty(name) ? project.getProperty(name) : defaultValue
+}
 dependencies {
-
-
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+    testCompile("io.github.bonigarcia:webdrivermanager:3.5.0")
     testCompile 'io.cucumber:cucumber-java8:4.3.0'
     testCompile 'io.cucumber:cucumber-junit:4.3.0'
     testCompile 'org.seleniumhq.selenium:selenium-chrome-driver:2.53.1'
+    testCompile "org.seleniumhq.selenium:selenium-firefox-driver:3.141.59"
+    testCompile "org.seleniumhq.selenium:selenium-support:3.141.59"
     testCompile "junit:junit:4.4"
 
 }
+test {
+    systemProperty 'browser', prop('browser', 'chrome')
+    testLogging.showStandardStreams = true
+    systemProperties System.getProperties()
 
+}
 compileKotlin {
     kotlinOptions.jvmTarget = "1.8"
 }
