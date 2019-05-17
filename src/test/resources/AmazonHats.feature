@@ -1,4 +1,4 @@
-Feature: Amazon Harts
+Feature: Amazon Hats
 Description: The user adds items to the cart
 
   Scenario: User adds different items to the cart
