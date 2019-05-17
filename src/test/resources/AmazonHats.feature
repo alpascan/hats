@@ -1,7 +1,7 @@
-Feature: Hats
+Feature: Amazon Harts
 Description: The user adds items to the cart
 
-  Scenario: User adds two hats for men
+  Scenario: User adds different items to the cart
     Given the user is on the website
     When the user searches for 'hats for men'
     And selects the first 'hats for men'

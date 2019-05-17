@@ -2,6 +2,7 @@ import Pages.BasePage
 import Pages.CartPage
 import Pages.ItemPage
 import Pages.SearchResultsPage
+import cucumber.api.java.After
 import cucumber.api.java.en.Given
 import cucumber.api.java.en.Then
 import cucumber.api.java.en.When
@@ -52,5 +53,10 @@ class StepDefinitions {
             cartPage.changeQualityOf(requiredItem, numberOfItems)
             cart.removeItemFromCart(requiredItem, numberOfItems)
         }
+
+    @After
+    fun tearDown() {
+        cartPage.tearDown()
+    }
 
 }

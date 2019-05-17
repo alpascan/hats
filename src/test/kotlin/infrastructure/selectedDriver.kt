@@ -4,7 +4,6 @@ import io.github.bonigarcia.wdm.WebDriverManager
 import org.openqa.selenium.WebDriver
 import org.openqa.selenium.chrome.ChromeDriver
 import org.openqa.selenium.firefox.FirefoxDriver
-import java.lang.RuntimeException
 
 object Driver {
     private val browser = System.getProperty("browser")
@@ -21,4 +20,5 @@ object Driver {
             else -> throw RuntimeException("Browser not supported!")
         }
     }
+    //TODO: Implement wait times to fix firefox flakyness
 }

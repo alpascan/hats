@@ -3,11 +3,10 @@ package Pages
 import datamodels.Cart
 import infrastructure.Driver
 import org.openqa.selenium.By
-import org.openqa.selenium.By.ById
 import org.openqa.selenium.Keys
 import org.openqa.selenium.WebDriver
 
- open class  BasePage {
+open class  BasePage {
      constructor()
      constructor(webDriver: WebDriver) {
         this.driver = webDriver
@@ -35,5 +34,9 @@ import org.openqa.selenium.WebDriver
             .click()
         return CartPage(driver)
     }
+
+     fun tearDown() {
+         driver.close()
+     }
 
 }

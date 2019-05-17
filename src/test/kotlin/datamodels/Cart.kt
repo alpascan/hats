@@ -47,6 +47,6 @@ class Cart() {
         for(item in itemList) {
             total += item.price
         }
-        return  total
+        return "%.2f".format(total).toFloat()
     }
 }

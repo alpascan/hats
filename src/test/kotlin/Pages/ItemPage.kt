@@ -3,6 +3,7 @@ package Pages
 
 import datamodels.Item
 import org.openqa.selenium.By
+import org.openqa.selenium.NoSuchElementException
 import org.openqa.selenium.WebDriver
 import org.openqa.selenium.support.ui.Select
 
@@ -37,6 +38,15 @@ class ItemPage(webDriver: WebDriver, val searchTag: String): BasePage() {
 
     fun addItemToCart(quantity: Int = 1) {
         if (quantity > 1) {
+            try {
+                val only1leftInStock =
+                    driver.findElement(By.xpath("//*[text()[contains(.,'Only 1 left')]]\n")).isDisplayed
+                if (only1leftInStock) {
+                    throw UnsupportedOperationException("Case not implemented yet")
+                }
+            } catch (e: NoSuchElementException) {
+                //TODO: Modify test to support Only one item supported
+            }
             selectQuantity(quantity)
         }
         driver.findElement(By.xpath("//input[@id='add-to-cart-button']"))
