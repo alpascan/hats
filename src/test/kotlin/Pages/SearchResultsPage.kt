@@ -3,7 +3,7 @@ package Pages
 import org.openqa.selenium.By
 import org.openqa.selenium.WebDriver
 
-class SearchResultsPage(val searchItem: String, driver: WebDriver): BasePage() {
+class SearchResultsPage(val searchItem: String, driver: WebDriver) : BasePage() {
     init {
         this.driver = driver
     }
@@ -13,5 +13,4 @@ class SearchResultsPage(val searchItem: String, driver: WebDriver): BasePage() {
             .click()
         return ItemPage(driver, searchItem)
     }
-
 }

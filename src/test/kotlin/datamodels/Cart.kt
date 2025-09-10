@@ -19,8 +19,7 @@ class Cart() {
     fun removeItemFromCart(item: Item, quantity: Int = 1, allItems: Boolean = false) {
         if (allItems) {
             itemList.removeAll(itemList.filter { it == item })
-        }
-        else {
+        } else {
             repeat(quantity) {
                 itemList.remove(item)
             }
@@ -31,20 +30,20 @@ class Cart() {
         removeItemFromCart(getItemByName(name), quantity, allItems)
     }
 
-    fun removeItemFromCartbyTag(tag:String, quantity: Int = 1, allItems: Boolean = false) {
+    fun removeItemFromCartbyTag(tag: String, quantity: Int = 1, allItems: Boolean = false) {
         removeItemFromCart(getItemByTag(tag), quantity, allItems)
     }
-    fun getItemByName (name: String): Item {
-       return itemList.filter { it.name == name }.first()
+    fun getItemByName(name: String): Item {
+        return itemList.filter { it.name == name }.first()
     }
 
     fun getItemByTag(tag: String): Item {
         return itemList.filter { it.searchTag == tag }.first()
     }
 
-    fun getTotal(): Float{
+    fun getTotal(): Float {
         var total = 0F
-        for(item in itemList) {
+        for (item in itemList) {
             total += item.price
         }
         return "%.2f".format(total).toFloat()
