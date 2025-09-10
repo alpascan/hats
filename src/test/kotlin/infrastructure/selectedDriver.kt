@@ -20,5 +20,5 @@ object Driver {
             else -> throw RuntimeException("Browser not supported!")
         }
     }
-    //TODO: Implement wait times to fix firefox flakyness
+    // TODO: Implement wait times to fix firefox flakyness
 }

@@ -5,7 +5,7 @@ import org.openqa.selenium.By
 import org.openqa.selenium.WebDriver
 import org.openqa.selenium.support.ui.Select
 
-class CartPage(webDriver: WebDriver): BasePage() {
+class CartPage(webDriver: WebDriver) : BasePage() {
     init {
         this.driver = webDriver
     }
@@ -15,9 +15,12 @@ class CartPage(webDriver: WebDriver): BasePage() {
             driver.findElement(
                 By.xpath(
                     "//span[contains(text(),'" +
-                            item.name.substringAfterLast("'") + "')]" + //only fetch text after escape character
-                "/ancestor::div[@data-price='" + "%.2f".format(item.price) + "']" +
-                "//Select[@name='quantity']")))
+                        item.name.substringAfterLast("'") + "')]" + // only fetch text after escape character
+                        "/ancestor::div[@data-price='" + "%.2f".format(item.price) + "']" +
+                        "//Select[@name='quantity']",
+                ),
+            ),
+        )
         quantityButton.selectByVisibleText(toQuantity.toString())
     }
 

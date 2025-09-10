@@ -6,9 +6,9 @@ import org.openqa.selenium.By
 import org.openqa.selenium.Keys
 import org.openqa.selenium.WebDriver
 
-open class  BasePage {
-     constructor()
-     constructor(webDriver: WebDriver) {
+open class BasePage {
+    constructor()
+    constructor(webDriver: WebDriver) {
         this.driver = webDriver
     }
     var url = "https://www.amazon.com"
@@ -35,8 +35,7 @@ open class  BasePage {
         return CartPage(driver)
     }
 
-     fun tearDown() {
-         driver.close()
-     }
-
+    fun tearDown() {
+        driver.close()
+    }
 }

@@ -1,13 +1,12 @@
 package Pages
 
-
 import datamodels.Item
 import org.openqa.selenium.By
 import org.openqa.selenium.NoSuchElementException
 import org.openqa.selenium.WebDriver
 import org.openqa.selenium.support.ui.Select
 
-class ItemPage(webDriver: WebDriver, val searchTag: String): BasePage() {
+class ItemPage(webDriver: WebDriver, val searchTag: String) : BasePage() {
 
     init {
         this.driver = webDriver
@@ -15,8 +14,8 @@ class ItemPage(webDriver: WebDriver, val searchTag: String): BasePage() {
 
     fun getItemDetails(): Item {
         var priceString = driver.findElement(By.xpath("//span[@id='priceblock_ourprice']"))
-           .getText()
-        if (priceString.contains('-')){
+            .getText()
+        if (priceString.contains('-')) {
             // Item has different sizes
             val sizeDropdown = Select(driver.findElement(By.xpath("//select[@id='native_dropdown_selected_size_name']")))
             sizeDropdown.selectByIndex(1)
@@ -45,7 +44,7 @@ class ItemPage(webDriver: WebDriver, val searchTag: String): BasePage() {
                     throw UnsupportedOperationException("Case not implemented yet")
                 }
             } catch (e: NoSuchElementException) {
-                //TODO: Modify test to support Only one item supported
+                // TODO: Modify test to support Only one item supported
             }
             selectQuantity(quantity)
         }
